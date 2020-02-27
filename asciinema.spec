@@ -4,10 +4,10 @@
 #
 Name     : asciinema
 Version  : 2.0.2
-Release  : 8
+Release  : 9
 URL      : https://github.com/asciinema/asciinema/archive/v2.0.2.tar.gz
 Source0  : https://github.com/asciinema/asciinema/archive/v2.0.2.tar.gz
-Summary  : No detailed summary available
+Summary  : Record and share terminal sessions
 Group    : Development/Tools
 License  : GPL-3.0
 Requires: asciinema-bin = %{version}-%{release}
@@ -27,7 +27,6 @@ BuildRequires : buildreq-distutils3
 Summary: bin components for the asciinema package.
 Group: Binaries
 Requires: asciinema-license = %{version}-%{release}
-Requires: asciinema-man = %{version}-%{release}
 
 %description bin
 bin components for the asciinema package.
@@ -71,6 +70,7 @@ python components for the asciinema package.
 Summary: python3 components for the asciinema package.
 Group: Default
 Requires: python3-core
+Provides: pypi(asciinema)
 
 %description python3
 python3 components for the asciinema package.
@@ -78,13 +78,20 @@ python3 components for the asciinema package.
 
 %prep
 %setup -q -n asciinema-2.0.2
+cd %{_builddir}/asciinema-2.0.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1547840889
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1582846531
+# -Werror is for werrorists
+export GCC_IGNORE_WERROR=1
+export CFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$CFLAGS -fno-lto "
+export FFLAGS="$CFLAGS -fno-lto "
+export CXXFLAGS="$CXXFLAGS -fno-lto "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
@@ -92,7 +99,7 @@ python3 setup.py build
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/asciinema
-cp LICENSE %{buildroot}/usr/share/package-licenses/asciinema/LICENSE
+cp %{_builddir}/asciinema-2.0.2/LICENSE %{buildroot}/usr/share/package-licenses/asciinema/8624bcdae55baeef00cd11d5dfcfa60f68710a02
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
@@ -111,7 +118,7 @@ echo ----[ mark ]----
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/asciinema/LICENSE
+/usr/share/package-licenses/asciinema/8624bcdae55baeef00cd11d5dfcfa60f68710a02
 
 %files man
 %defattr(0644,root,root,0755)
