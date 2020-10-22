@@ -4,10 +4,10 @@
 #
 Name     : asciinema
 Version  : 2.0.2
-Release  : 10
+Release  : 11
 URL      : https://github.com/asciinema/asciinema/archive/v2.0.2.tar.gz
 Source0  : https://github.com/asciinema/asciinema/archive/v2.0.2.tar.gz
-Summary  : Record and share terminal sessions
+Summary  : Terminal session recorder
 Group    : Development/Tools
 License  : GPL-3.0
 Requires: asciinema-bin = %{version}-%{release}
@@ -85,12 +85,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1582846531
-# -Werror is for werrorists
+export SOURCE_DATE_EPOCH=1603387358
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
-export FCFLAGS="$CFLAGS -fno-lto "
-export FFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$FFLAGS -fno-lto "
+export FFLAGS="$FFLAGS -fno-lto "
 export CXXFLAGS="$CXXFLAGS -fno-lto "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
