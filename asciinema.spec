@@ -4,7 +4,7 @@
 #
 Name     : asciinema
 Version  : 2.1.0
-Release  : 21
+Release  : 22
 URL      : https://github.com/asciinema/asciinema/archive/v2.1.0/asciinema-2.1.0.tar.gz
 Source0  : https://github.com/asciinema/asciinema/archive/v2.1.0/asciinema-2.1.0.tar.gz
 Summary  : Terminal session recorder
