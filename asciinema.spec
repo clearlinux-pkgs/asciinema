@@ -4,7 +4,7 @@
 #
 Name     : asciinema
 Version  : 2.1.0
-Release  : 24
+Release  : 25
 URL      : https://github.com/asciinema/asciinema/archive/v2.1.0/asciinema-2.1.0.tar.gz
 Source0  : https://github.com/asciinema/asciinema/archive/v2.1.0/asciinema-2.1.0.tar.gz
 Summary  : Terminal session recorder
@@ -85,7 +85,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1633448220
+export SOURCE_DATE_EPOCH=1635703833
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
