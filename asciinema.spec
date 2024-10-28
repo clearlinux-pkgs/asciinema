@@ -7,7 +7,7 @@
 #
 Name     : asciinema
 Version  : 2.4.0
-Release  : 32
+Release  : 33
 URL      : https://github.com/asciinema/asciinema/archive/v2.4.0/asciinema-2.4.0.tar.gz
 Source0  : https://github.com/asciinema/asciinema/archive/v2.4.0/asciinema-2.4.0.tar.gz
 Summary  : No detailed summary available
